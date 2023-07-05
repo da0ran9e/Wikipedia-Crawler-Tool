@@ -1,5 +1,3 @@
-package HForm;
-
 import info.bliki.wiki.filter.PlainTextConverter;
 import info.bliki.wiki.model.IWikiModel;
 import info.bliki.wiki.model.WikiModel;
@@ -12,10 +10,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
-import javax.imageio.plugins.jpeg.JPEGImageReadParam;
-import javax.swing.*;
-import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -183,13 +177,6 @@ public class WikiModelReader {
         System.out.println(templates);
     }
     public static void main(String[] args) throws IOException, ParseException {
-//        JFrame app = new JFrame();
-//        app.setSize(new Dimension(500, 800));
-//        JLabel label = new JLabel("<html>"+wikimarkupReader("Nhạc Phi")+"</html>");
-//        JScrollPane scroll = new JScrollPane(label);
-//        app.add(scroll);
-//        app.setVisible(true);
-
     wikimarkupReader2HTMLTemplate("Nhạc Phi");
     }
 }

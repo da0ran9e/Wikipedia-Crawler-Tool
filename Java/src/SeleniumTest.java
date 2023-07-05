@@ -1,6 +1,3 @@
-package HForm;
-
-import org.json.JSONException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -19,17 +16,7 @@ import java.util.List;
 import java.util.Stack;
 
 public class SeleniumTest {
-    public static String sanitizeFileName(String fileName) {
-        // Define a set of invalid characters not allowed in file names
-        String invalidChars = "\\/:*?\"<>|";
 
-        // Replace each invalid character with an empty string
-        for (char c : invalidChars.toCharArray()) {
-            fileName = fileName.replace(c, '_');
-        }
-
-        return fileName;
-    }
     public static void seleniumEdge(){
         System.setProperty("webdriver.edge.driver", "msedgedriver.exe");
         WebDriver driver = new EdgeDriver();
@@ -462,7 +449,7 @@ public class SeleniumTest {
         driver.close();
         return pageSrc;
     }
-    public static DefaultListModel<String> keywordsList() throws IOException, ParseException, JSONException {
+    public static DefaultListModel<String> keywordsList() throws IOException, ParseException{
         DefaultListModel<String> list = new DefaultListModel<>();
         try{
             JSONParser parser = new JSONParser();
@@ -484,7 +471,7 @@ public class SeleniumTest {
     }
 
 
-    public static DefaultListModel<String> keywordsListV1() throws IOException, ParseException, JSONException {
+    public static DefaultListModel<String> keywordsListV1() throws IOException, ParseException {
         DefaultListModel<String> list = new DefaultListModel<>();
         try{
             JSONParser parser = new JSONParser();
@@ -504,7 +491,7 @@ public class SeleniumTest {
 
         return list;
     }
-    public static DefaultListModel<String> keywordsListV2() throws IOException, ParseException, JSONException {
+    public static DefaultListModel<String> keywordsListV2() throws IOException, ParseException {
         DefaultListModel<String> list = new DefaultListModel<>();
         try{
             JSONParser parser = new JSONParser();
@@ -524,7 +511,7 @@ public class SeleniumTest {
 
         return list;
     }
-    public static DefaultListModel<String> keywordsListV3() throws IOException, ParseException, JSONException {
+    public static DefaultListModel<String> keywordsListV3() throws IOException, ParseException {
         DefaultListModel<String> list = new DefaultListModel<>();
         try{
             JSONParser parser = new JSONParser();
@@ -544,12 +531,8 @@ public class SeleniumTest {
         return list;
     }
 
-    public static void main(String[] args) throws JSONException, IOException, ParseException {
+    public static void main(String[] args) throws IOException, ParseException {
         DefaultListModel<String> list = keywordsListV3();
-//        for (int i=0;i<list.getSize(); i++){
-//            System.out.println();
-//            WikipediaAPIRequest.APIRevisionsDataRequestV4(list.elementAt(i));
-//        }
         WikipediaAPIRequest.APIRevisionsDataRequestV5( list);
     }
 }

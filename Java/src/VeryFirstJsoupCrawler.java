@@ -13,35 +13,11 @@ The class contains three methods: Href_loader, Space2Underscores, and Jsoup_find
 The class uses the JSON.simple library to parse and create JSON objects. The class relies on the JSoup library to extract HTML content from Wikipedia pages, and it assumes that the content is well-formed and follows the expected structure of Wikipedia pages.
 */
 public class VeryFirstJsoupCrawler {
-    /**
-     *This function replaces spaces in a string with underscores
-     * @param input - string to be processed
-     *               The input string is a string containing spaces
-     * @return output - processed string
-     */
-    public static String Space2Underscores(String input) {
-        if (input == null) {
-            return null;
-        }
-
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < input.length(); i++) {
-            char c = input.charAt(i);
-            if (c == ' ') {
-                sb.append('_');
-            } else {
-                sb.append(c);
-            }
-        }
-
-        return sb.toString();
-    }
       public static List<String> Go(String name) {
         List<String> data = new ArrayList<String>(50);
         try {
             // Kết nối tới trang web chứa thông tin về thời kì
-            String url = "https://vi.wikipedia.org/wiki/"+Space2Underscores(name);
+            String url = "https://vi.wikipedia.org/wiki/"+StringProcessorTools.Space2Underscores(name);
             Document document = Jsoup.connect(url).get();
             //Lấy dữ liệu của bảng thông tin
             Elements tables = document.select("table.infobox tbody");
@@ -60,7 +36,7 @@ public class VeryFirstJsoupCrawler {
         public static List<String> mainContents(String name){
         List<String> data = new ArrayList<String>(50);
         try{
-            String url = "https://vi.wikipedia.org/wiki/"+Space2Underscores(name);
+            String url = "https://vi.wikipedia.org/wiki/"+StringProcessorTools.Space2Underscores(name);
                     Document document = Jsoup.connect(url).get();
                     // Chỉ lấy dữ liệu trong thẻ div có class là "mw-parser-output" (chỉ có văn bản)
                     Elements elements = document.select("div.mw-parser-output");
@@ -83,7 +59,7 @@ public class VeryFirstJsoupCrawler {
          List<String> data = new ArrayList<String>(50);
         try {
             // Kết nối tới trang web chứa thông tin về thời kì https://vi.wikipedia.org/wiki/Tập_tin:Northern_and_Southern_Dynasties_3.png
-            String url = "https://vi.wikipedia.org/wiki/"+Space2Underscores(name);
+            String url = "https://vi.wikipedia.org/wiki/"+StringProcessorTools.Space2Underscores(name);
             Document document = Jsoup.connect(url).get();
             Elements images = document.select("img[src]");
             for (Element image:images){

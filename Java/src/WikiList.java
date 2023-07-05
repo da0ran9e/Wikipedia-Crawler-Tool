@@ -1,5 +1,3 @@
-package HForm;
-
 import org.json.simple.parser.JSONParser;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -28,84 +26,7 @@ public class WikiList {
                     System.out.println(elements.size());
 
                     for (Element element : elements) {
-
-//                        System.out.println(element.text());
-//                        Element headingElement = element.select(".mw-search-result-heading").first();
-//                        if(headingElement!=null){
-//                            String title = headingElement.select("a").text();
-//                            System.out.println(title);
-//                        }
-
                     }
-//                        if (tagName.equals("h2") || tagName.equals("h3")) {
-//                            // Nếu là tiêu đề h2 hoặc h3 (các mục chính)
-//                            JSONObject section = new JSONObject();
-//                            section.put("TieuDe", content);
-//                            section.put("DoanVan", new JSONArray());
-//                            textArray.add(section);
-//                        } else if (tagName.equals("p")) {
-//                            // Nếu là đoạn văn bản
-//                            if(!textArray.isEmpty()){
-//                                JSONArray paragraphsArray = (JSONArray) ((JSONObject) textArray.get(textArray.size() - 1)).get("DoanVan");
-//                                paragraphsArray.add(content);
-//                            }
-//                        }
-//                    }
-//        JSONParser parser = new JSONParser();
-//        try {
-//            JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(jsonFilePath));
-//            JSONArray linkArray = (JSONArray) jsonObject.get("TuKhoaVaLink");
-//
-//            // Lặp qua danh sách các link
-//            for (Object obj : linkArray) {
-//                JSONObject linkObj = (JSONObject) obj;
-//                String link = (String) linkObj.get("Link");
-//                String title = (String) linkObj.get("TuKhoa");
-//                System.out.println("Connecting to: " + title + " href: " + link);
-//
-//                    // Tạo JSON object lưu trữ dữ liệu
-//                JSONObject data3 = new JSONObject();
-//                JSONArray textArray = new JSONArray();
-//                data3.put("TuKhoa", title); // Tiêu đề của trang
-//
-//                try{
-//                    Document document = Jsoup.connect(link).get();
-//                    // Chỉ lấy dữ liệu trong thẻ div có class là "mw-parser-output" (chỉ có văn bản)
-//                    Elements elements = document.select("div.mw-parser-output");
-//                    Elements mainText = elements.select("h2, h3, p");
-//
-//                    for (Element text : mainText){
-//                        String tagName = text.tagName();
-//                        String content = text.text();
-//                        if (tagName.equals("h2") || tagName.equals("h3")) {
-//                            // Nếu là tiêu đề h2 hoặc h3 (các mục chính)
-//                            JSONObject section = new JSONObject();
-//                            section.put("TieuDe", content);
-//                            section.put("DoanVan", new JSONArray());
-//                            textArray.add(section);
-//                        } else if (tagName.equals("p")) {
-//                            // Nếu là đoạn văn bản
-//                            if(!textArray.isEmpty()){
-//                                JSONArray paragraphsArray = (JSONArray) ((JSONObject) textArray.get(textArray.size() - 1)).get("DoanVan");
-//                                paragraphsArray.add(content);
-//                            }
-//                        }
-//                    }
-//
-//                    data3.put("TuKhoaVaVanBan", textArray); // Danh sách các mục chính và đoạn văn bản
-//            // Lưu dữ liệu vào file JSON
-//            try (FileWriter file = new FileWriter("ref_"+ title + ".json")) {
-//                file.write(data3.toJSONString());
-//                System.out.println("Lưu dữ liệu vào file ref_" + title + ".json thành công!");
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//
-//                } catch (IOException e){
-//                    e.printStackTrace();
-//                }
-//            }
-
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -1,8 +1,6 @@
-package HForm;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,22 +8,23 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class JSONreader {
-    public static void main(String[] args) throws JSONException {
+    public static void main(String[] args) throws ParseException {
         // JSON response from the Wikipedia API
         String jsonResponse = WikipediaAPIRequest.testDateAnalyze("Ho_Chi_Minh", 67377); // Replace with the actual JSON response
 
+        JSONParser parser = new JSONParser();
         // Parse the JSON response
-        JSONObject response = new JSONObject(jsonResponse);
-        JSONObject query = response.getJSONObject("query");
-        JSONObject pages = query.getJSONObject("pages");
-        JSONObject pageID = pages.getJSONObject("67377");
+        JSONObject response = (JSONObject) parser.parse(jsonResponse);
+        JSONObject query = (JSONObject) response.get("query");
+        JSONObject pages = (JSONObject) query.get("pages");
+        JSONObject pageID = (JSONObject) pages.get("67377");
 
 
 
         // Check if the page has an infobox section
-        if (pageID.has("revisions")) {
+        if (pageID.containsKey("revisions")) {
             // Extract the infobox section from the pageID content
-            String content = pageID.getString("revisions");
+            String content = (String) pageID.get("revisions");
             String infobox = extractInfobox(content);
             // Parse the infobox JSON
             //JSONObject infoboxObject = new JSONObject(infobox);

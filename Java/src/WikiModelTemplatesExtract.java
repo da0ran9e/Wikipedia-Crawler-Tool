@@ -1,46 +1,14 @@
-package HForm;
-
 import org.json.simple.JSONArray;
-import org.json.JSONException;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.sweble.wikitext.engine.*;
-import org.sweble.wikitext.engine.config.WikiConfig;
-import org.sweble.wikitext.engine.nodes.EngProcessedPage;
-import org.sweble.wikitext.engine.utils.DefaultConfigEnWp;
-import org.sweble.wikitext.parser.ParserConfig;
-import org.sweble.wikitext.parser.WikitextParser;
-import org.sweble.wikitext.parser.parser.LinkTargetException;
-import org.w3c.dom.Node;
-
 import javax.swing.*;
 import java.io.*;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.*;
 
-import static HForm.SeleniumTest.keywordsListV3;
-
 public class WikiModelTemplatesExtract {
-     public static String Underscore2Space(String input) {
-        if (input == null) {
-            return null;
-        }
-
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < input.length(); i++) {
-            char c = input.charAt(i);
-            if (c == '_') {
-                sb.append(' ');
-            } else {
-                sb.append(c);
-            }
-        }
-
-        return sb.toString();
-    }
     public static List<String> extractSubstrings(String input) {
         List<String> substrings = new ArrayList<>();
 
@@ -83,19 +51,6 @@ public class WikiModelTemplatesExtract {
             }
         }
         System.out.println(beginIndexes.size() + " " + endIndexes.size());
-//        for (int i = 0; i < endIndexes.size(); i++) {
-//            for (int j = 0; j < beginIndexes.size(); j++) {
-//                if (endIndexes.get(i) < beginIndexes.get(j)) {
-//                    //System.out.println(beginIndexes.get(j-1) + " " +endIndexes.get(i)+2);
-//                    //System.out.println(beginIndexes.get(j-1) + " " + endIndexes.get(i) + " "
-//                    //        + input.substring(beginIndexes.get(j-1),  endIndexes.get(i)+2));
-//                    substrings.add(input.substring(beginIndexes.get(j-1),  endIndexes.get(i)+2));
-//                    endIndexes.remove(i);
-//                    beginIndexes.remove(j-1);
-//                    break;
-//                }
-//            }
-//        }
         return substrings;
     }
 
@@ -127,13 +82,6 @@ public class WikiModelTemplatesExtract {
         return substrings;
     }
 
-    public static String removeUnnecessarySpaces(String input) {
-        input = input.trim();
-        input = input.replaceAll("\\s+", " ");
-
-        return input;
-    }
-
     public static Map<String, String> parseInputString(String input) {
         Map<String, String> resultMap = new HashMap<>(100);
         String[] lines = input.split("\\n\\|");
@@ -141,8 +89,8 @@ public class WikiModelTemplatesExtract {
             //System.out.println(line);
             if (line.contains("=")) {
                 //line = line.substring(1).trim();
-                String key = removeUnnecessarySpaces(line.substring(0, line.indexOf("=")));
-                String value = removeUnnecessarySpaces(line.substring(line.indexOf("=")+1));
+                String key = StringProcessorTools.removeUnnecessarySpaces(line.substring(0, line.indexOf("=")));
+                String value = StringProcessorTools.removeUnnecessarySpaces(line.substring(line.indexOf("=")+1));
 
                 resultMap.put(key, value);
                 //System.out.println(key +" -> "+ value );
@@ -151,7 +99,6 @@ public class WikiModelTemplatesExtract {
 
         return resultMap;
     }
-
     public static void filtering() throws IOException, ParseException {
         File folder = new File("Category_data");
         if(folder.exists()&&folder.isDirectory()) {
@@ -181,7 +128,7 @@ public class WikiModelTemplatesExtract {
         }
 
     }
-public static void filteringV1() throws IOException, ParseException, JSONException {
+public static void filteringV1() throws IOException, ParseException{
         File folder = new File("Category_data");
         List<String> files = new ArrayList<>();
         if(folder.exists()&&folder.isDirectory()) {
@@ -192,9 +139,9 @@ public static void filteringV1() throws IOException, ParseException, JSONExcepti
                 //System.out.println(name);
             }
         }
-        DefaultListModel<String> list = keywordsListV3();
+        DefaultListModel<String> list = SeleniumTest.keywordsListV3();
         for(int i=0; i< list.getSize(); i++){
-            String name = Underscore2Space(URLDecoder.decode(list.getElementAt(i), "UTF-8")+".json");
+            String name = StringProcessorTools.Underscore2Space(URLDecoder.decode(list.getElementAt(i), "UTF-8")+".json");
             //System.out.println(name);
             if(files.contains(name)){
                 files.remove(name);
@@ -274,23 +221,9 @@ public static void filteringV1() throws IOException, ParseException, JSONExcepti
                             templatesUsing.replace(tempName, templatesUsing.get(tempName)+1);
                         }
                     }
-                    //System.out.println(tempName);
                 }
-
-
-
-//                File resultFile = new File("Prefiltered_templates_data//" + file.getName());
-//                //System.out.println(resultFile.getAbsolutePath());
-//                try(FileWriter fileWriter = new FileWriter(resultFile)) {
-//                    fileWriter.write(resultJson.toJSONString());
-//                } catch (IOException e) {
-//                    throw new RuntimeException(e);
-//                }
             }
                 Collections.sort(templatesList);
-//                for (String s:templatesList){
-//                    System.out.println(s);
-//                }
                 System.out.println(templatesUsing);
                 JSONObject mapTemplate = new JSONObject();
                 JSONArray templatesArray = new JSONArray();
@@ -329,7 +262,7 @@ public static void filteringV1() throws IOException, ParseException, JSONExcepti
         }
 
     }
-        public static void filteringV4() throws IOException, ParseException {
+    public static void filteringV4() throws IOException, ParseException {
 
          File filteredJson = new File("jsonformatter.txt");
          List<String> filteredList = new ArrayList<>();
@@ -381,7 +314,7 @@ File folder = new File("Category_data");
 
 
     }
-     public static void filteringV5() throws IOException, ParseException {
+    public static void filteringV5() throws IOException, ParseException {
         File folder = new File("Templates_data2f");
         if(folder.exists()&&folder.isDirectory()) {
             File[] listOfFiles = folder.listFiles();

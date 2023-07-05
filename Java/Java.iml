@@ -14,5 +14,6 @@
     <orderEntry type="library" name="selenium-edge-driver-4.9.0-sources" level="project" />
     <orderEntry type="library" name="selenium-edge-driver-4.9.0" level="project" />
     <orderEntry type="library" name="selenium-server-4.9.0" level="project" />
+    <orderEntry type="library" name="info.bliki.wiki.core" level="project" />
   </component>
 </module>

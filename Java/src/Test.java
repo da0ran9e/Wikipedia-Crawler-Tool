@@ -1,6 +1,4 @@
-package HForm;
 
-import org.json.JSONException;
 import org.json.simple.parser.ParseException;
 
 import javax.swing.*;
@@ -11,7 +9,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Test{
-    public static void main(String[] args) throws JSONException, IOException, ParseException {
+    public static void main(String[] args) throws IOException, ParseException {
 
     //String content = WikipediaAPIRequest.APIRevisionsDataRequest("Hồ Chí Minh");
        // System.out.println(WikipediaAPIRequest.APISearchRequest("Hồ Chí Minh"));

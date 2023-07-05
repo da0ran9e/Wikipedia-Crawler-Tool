@@ -1,5 +1,3 @@
-package HForm;
-
 import org.asynchttpclient.ListenableFuture;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -21,58 +19,8 @@ import java.net.URL;
 import java.util.regex.Pattern;
 
 public class WikipediaAPIRequest {
-    public static List<String> prop = List.of(
-            "categories", //List all categories the pages belong to
-            "extlinks", //Returns all external URLs (not interwikis) from the given pages.
-            "extracts", //Returns plain-text or limited HTML extracts of the given pages.
-            "info", //Get basic page information.
-            "iwlinks",//Returns all interwiki links from the given pages.
-            "links", //Returns all links from the given pages.
-            "linkshere", //Find all pages that link to the given pages.
-            "pageimages", //Returns information about images on the page, such as thumbnail and presence of photos
-            "pageprops", //Get various page properties defined in the page content.
-            "redirects", //Returns all redirects to the given pages.
-            "transcludedin", //Find all pages that transclude the given pages.
-            "mapdata" //Request all Kartographer map data for the given pages
-    );
-    public static List<String> list = List.of(
-            "search",
-            "backlinks",  //Find all pages that link to the given page.
-            //Eg: api.php ? action=query & list=backlinks & format=json & bltitle=Ho%20Chi%20Minh
-            "categorymembers", //List all pages in a given category.
-            "imageusage", //Find all pages that use the given image title.
-            "iwbacklinks" //Find all pages that link to the given interwiki link.
-    );
-    public static List<String> generator = List.of(
-            "allcategories" //Enumerate all categories
-    );
-
-    public static String removeDiacritics(String text) {
-        String normalizedText = Normalizer.normalize(text, Normalizer.Form.NFD);
-        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
-        String removedSignsText = pattern.matcher(normalizedText).replaceAll("");
-        return removedSignsText;
-    }
-    public static String convertVi2En(String word) {
-        // Define the mapping of Vietnamese characters to English equivalents
-        String[][] characterMap = {
-                {"Đ", "D"},
-                {"đ", "d"},
-                {"Ủ", "U"},
-                {"ủ", "u"},
-                // Add more mappings as needed
-        };
-
-        // Iterate through the character map and replace Vietnamese characters with English equivalents
-        for (String[] mapping : characterMap) {
-            word = word.replace(mapping[0], mapping[1]);
-        }
-
-        return word;
-    }
-
     public static List<JSONObject> APISearchRequest(String query) {
-        String apiUrl = "https://vi.wikipedia.org/w/api.php?action=query&list=search&prop=info&format=json&srsearch=" + Wikipedia_Crawler.Space2Underscores(convertVi2En(removeDiacritics(query)));
+        String apiUrl = "https://vi.wikipedia.org/w/api.php?action=query&list=search&prop=info&format=json&srsearch=" + StringProcessorTools.Space2Underscores(StringProcessorTools.convertVi2En(StringProcessorTools.removeDiacritics(query)));
         List<JSONObject> foundedValue = new ArrayList<>();
 
         try {
@@ -123,7 +71,7 @@ public class WikipediaAPIRequest {
     }
 
     public static void APIImageRequest(String title, long pageid) {
-        String apiUrl = "https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=" + Wikipedia_Crawler.Space2Underscores(convertVi2En(removeDiacritics(title))) + "&origin=*";
+        String apiUrl = "https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=" + StringProcessorTools.Space2Underscores(StringProcessorTools.convertVi2En(StringProcessorTools.removeDiacritics(title))) + "&origin=*";
         try {
             URL url = new URL(apiUrl);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -164,7 +112,7 @@ public class WikipediaAPIRequest {
     }
 
     public static JSONArray APICategoriesDataRequest(String title) {
-        String apiUrl = "https://en.wikipedia.org/w/api.php?action=query&prop=categories&format=json&titles=" + Wikipedia_Crawler.Space2Underscores(convertVi2En(removeDiacritics(title)));
+        String apiUrl = "https://en.wikipedia.org/w/api.php?action=query&prop=categories&format=json&titles=" + StringProcessorTools.Space2Underscores(StringProcessorTools.convertVi2En(StringProcessorTools.removeDiacritics(title)));
         String categories = new String();
         JSONArray category = new JSONArray();
         try {
@@ -207,7 +155,7 @@ public class WikipediaAPIRequest {
     }
 
     public static String APIRevisionsDataRequest(String title) {
-        String apiUrl = "https://vi.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&titles=" + Wikipedia_Crawler.Space2Underscores(removeDiacritics(title));
+        String apiUrl = "https://vi.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&titles=" + StringProcessorTools.Space2Underscores(StringProcessorTools.removeDiacritics(title));
         String mainContent = new String();
         try {
             URL url = new URL(apiUrl);
@@ -251,7 +199,7 @@ public class WikipediaAPIRequest {
         return mainContent;
     }
     public static String APIRevisionsDataRequestV2(String title) {
-        String apiUrl = "https://vi.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&titles=" + Wikipedia_Crawler.Space2Underscores(title);
+        String apiUrl = "https://vi.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&titles=" + StringProcessorTools.Space2Underscores(title);
         String mainContent = new String();
         try {
             URL url = new URL(apiUrl);
@@ -295,7 +243,7 @@ public class WikipediaAPIRequest {
         return mainContent;
     }
     public static String APIRevisionsDataRequestV1(String title) {
-        String apiUrl = "https://vi.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&titles=" + Wikipedia_Crawler.Space2Underscores(convertVi2En(removeDiacritics(title)));
+        String apiUrl = "https://vi.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&titles=" + StringProcessorTools.Space2Underscores(StringProcessorTools.convertVi2En(StringProcessorTools.removeDiacritics(title)));
         String mainContent = new String();
         try {
             URL url = new URL(apiUrl);
@@ -465,7 +413,7 @@ public class WikipediaAPIRequest {
     }
 
     public static String testDateAnalyze(String title, long pageid) {
-        String apiUrl = "https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&titles=" + Wikipedia_Crawler.Space2Underscores(convertVi2En(removeDiacritics(title)));
+        String apiUrl = "https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&titles=" + StringProcessorTools.Space2Underscores(StringProcessorTools.convertVi2En(StringProcessorTools.removeDiacritics(title)));
         try {
             URL url = new URL(apiUrl);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -495,7 +443,7 @@ public class WikipediaAPIRequest {
         return null;
     }
     public static String APIBestMatchedSearchRequest(String query) {
-        String apiUrl = "https://vi.wikipedia.org/w/api.php?action=query&list=search&prop=info&format=json&srsearch=" + Wikipedia_Crawler.Space2Underscores(convertVi2En(removeDiacritics(query)));
+        String apiUrl = "https://vi.wikipedia.org/w/api.php?action=query&list=search&prop=info&format=json&srsearch=" + StringProcessorTools.Space2Underscores(StringProcessorTools.convertVi2En(StringProcessorTools.removeDiacritics(query)));
         String keyword = new String();
         try {
             URL url = new URL(apiUrl);
