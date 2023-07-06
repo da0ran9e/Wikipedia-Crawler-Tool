@@ -10,7 +10,6 @@
 - json-simple-1.1.1
 - selenium-server-4.9.0
 - selenium-edge-driver-4.9.0
-- AbsoluteLayout-RELEASE170
 - bliki-core-3.0.19-javadoc
 - info.bliki.wiki.pdf
 - org.json
