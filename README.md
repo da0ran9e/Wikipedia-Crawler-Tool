@@ -32,3 +32,4 @@
 | [dynasty]() | 364 | 77 | Wikipedia | các bài viết liên quan đến các triều đại hoặc thời kì lịch sử Việt Nam | name |
 | [park]() | 173 | 56 | Wikipedia | các công viên vui chơi giải trí liên quan đến lịch sử Việt Nam | name |
 | [category_data]() | 32259 | 20 | Wikipedia | dữ liệu từ tất cả các trang thuộc về chủ đề lịch sử Việt Nam | id | 
+| [thumbnail]() | 17841 | N/N | Wikipedia | thumbnail của một số trang dữ liệu thu thập được | id |
