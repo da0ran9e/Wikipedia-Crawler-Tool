@@ -1,0 +1,255 @@
+{
+    "name": {
+        "name": "String",
+        "tên": "String",
+        "tên đầy đủ": "String",
+        "tên khai sinh": "String",
+        "tên ký": "String",
+        "tên gốc": "String",
+        "Tên chính thức": "String",
+        "Tên khác": "String",
+        "Tên": "String",
+        "realname": "String",
+        "birthname": "String",
+        "common_name": "String",
+        "conventional_long_name": "String",
+        "native_name": "String",
+        "othername": "String",
+        "ALTERNATIVE NAMES": "String",
+        "thụy hiệu": "String",
+        "niên hiệu": "String",
+        "nghệ danh": "String",
+        "tước hiệu": "String",
+        "throne": "String",
+        "{{Infobox monarch | name": "String",
+        "miếu hiệu": "String",
+        "tên hiệu": "String",
+        "fullname": "String",
+        "hoàng tộc": "String",
+        "tên tự": "String",
+        "birth_name": "String",
+        "title": "Lý Thánh Tông"
+    },
+    "nickname": {
+        "nickname": "String",
+        "tên khác": "String",
+        "penname": "String",
+        "alias": "String"
+    },
+    "born": {
+        "DATE OF BIRTH": "String",
+        "{{Thời gian sống|sinh": "String",
+        "ngày sinh": "String",
+        "born": "String",
+        "birth_date": "String",
+        "birthdate": "String",
+        "sinh": "String",
+        "location": "String"
+    },
+    "died": {
+        "DATE OF DEATH": "String",
+        "mất": "String",
+        "died": "String",
+        "death_date": "String",
+        "ngày mất": "String",
+        "ngày chết": "String",
+        "deathdate": "String",
+        "chết": "String"
+    },
+    "allegiance": {
+        "quốc gia": "String",
+        "phục vụ": "String",
+        "allegiance": "String",
+        "đảng": "String",
+        "nationality": "String"
+    },
+    "placeofbirth": {
+        "quê quán": "String",
+        "PLACE OF BIRTH": "String",
+        "placeofbirth": "String",
+        "birth_place": "String",
+        "nơi sinh": "String"
+    },
+    "placeofdeath": {
+        "PLACE OF DEATH": "String",
+        "placeofdeath": "String",
+        "death_place": "String",
+        "nơi mất": "String",
+        "deathplace": "String",
+        "nơi an táng": "String",
+        "placeofburial": "String",
+        "disappeared_place": "String",
+        "an táng": "String"
+    },
+    "occupation": {
+        "công việc": "String",
+        "công việc khác": "String",
+        "nghề nghiệp": "String",
+        "chức vụ": "String",
+        "chức vụ 9": "String",
+        "chức vụ 8": "String",
+        "chức vụ 11": "String",
+        "chức vụ 12": "String",
+        "chức vụ 3": "String",
+        "chức vụ 2": "String",
+        "chức vụ 7": "String",
+        "chức vụ 6": "String",
+        "chức vụ 5": "String",
+        "chức vụ 4": "String",
+        "chức vụ 10": "String",
+        "phó chức vụ 2": "String",
+        "phó chức vụ 3": "String",
+        "phó chức vụ 4": "String",
+        "phó chức vụ 9": "String",
+        "phó chức vụ 5": "String",
+        "phó chức vụ 6": "String",
+        "phó chức vụ 7": "String",
+        "phó chức vụ 8": "String",
+        "trưởng chức vụ 4": "String",
+        "trưởng chức vụ 5": "String",
+        "trưởng chức vụ 2": "String",
+        "trưởng chức vụ 3": "String",
+        "trưởng chức vụ 8": "String",
+        "trưởng chức vụ 9": "String",
+        "trưởng chức vụ 6": "String",
+        "trưởng chức vụ 7": "String",
+        "trưởng chức vụ 12": "String",
+        "trưởng chức vụ 11": "String",
+        "trưởng chức vụ 10": "String",
+        "trưởng chức vụ": "String",
+        "trưởng viên chức": "String",
+        "trưởng viên chức 5": "String",
+        "trưởng viên chức 4": "String",
+        "trưởng viên chức 3": "String",
+        "trưởng viên chức 2": "String",
+        "trưởng viên chức 8": "String",
+        "trưởng viên chức 7": "String",
+        "trưởng viên chức 6": "String",
+        "chức vị 1": "String",
+        "chức vị": "String",
+        "rank": "String",
+        "occupation": "String",
+        "cấp bậc": "String",
+        "bổn mệnh": "String"
+    },
+    "laterwork": {
+        "laterwork": "String",
+        "tác phẩm": "String"
+    },
+    "caption": {
+        "caption": "String"
+    },
+    "office": {
+        "office": "String",
+        "office2": "String",
+        "office3": "String",
+        "office4": "String",
+        "office5": "String",
+        "office6": "String",
+        "office7": "String",
+        "địa hạt 8": "String",
+        "địa hạt 6": "String",
+        "địa hạt 7": "String",
+        "địa hạt 4": "String",
+        "địa hạt 5": "String",
+        "địa hạt 2": "String",
+        "địa hạt 3": "String",
+        "địa hạt": "String",
+        "thuộc": "String",
+        "đơn vị": "String"
+    },
+    "branch": {
+        "branch": "String"
+    },
+    "children": {
+        "thông tin con cái": "String",
+        "con cái": "String",
+        "children": "String",
+        "con": "String"
+    },
+    "term_end": {
+        "kết thúc": "String",
+        "kết thúc 4": "String",
+        "kết thúc 3": "String",
+        "kết thúc 6": "String",
+        "kết thúc 5": "String",
+        "kết thúc 7": "String",
+        "kết thúc 2": "String",
+        "term_end": "String"
+    },
+    "serviceyears": {
+        "serviceyears": "String"
+    },
+    "commands": {
+        "commands": "String"
+    },
+    "image": {
+        "image": "String",
+        "hình": "String"
+    },
+    "awards": {
+        "khen thưởng": "String",
+        "awards": "String",
+        "mawards": "String",
+        "thành tích": "String",
+        "vinh danh": "String",
+        "danh hiệu": "String"
+    },
+    "relatives": {
+        "mẹ": "String",
+        "vợ": "String",
+        "cha": "String",
+        "relatives": "String",
+        "spouse": "String",
+        "người hôn phối": "String",
+        "hôn phối": "String",
+        "phối ngẫu 2": "String",
+        "cha mẹ": "String",
+        "em trai": "String",
+        "chồng": "String",
+        "họ hàng": "String"
+    },
+    "successor": {
+        "sau": "[[Lý Nhân Tông]]",
+        "successor": "String",
+        "successor2": "String",
+        "successor3": "String",
+        "kế nhiệm 4": "String",
+        "kế nhiệm 3": "String",
+        "kế nhiệm 6": "String",
+        "kế nhiệm 5": "String",
+        "kế nhiệm 7": "String",
+        "kế nhiệm": "String"
+    },
+    "predecessor": {
+        "predecessor": "String",
+        "predecessor2": "String",
+        "predecessor3": "String",
+        "tiền nhiệm": "String",
+        "tiền nhiệm 6": "String",
+        "tiền nhiệm 5": "String",
+        "tiền nhiệm 7": "String",
+        "tiền nhiệm 2": "String",
+        "tiền nhiệm 4": "String",
+        "tiền nhiệm 3": "String",
+        "primeminister": "String",
+        "trước": "[[Lý Thái Tông]]"
+    },
+    "death_cause": {
+        "death_cause": "String"
+    },
+    "battles": {
+        "tham chiến": "String",
+        "battles": "String"
+    },
+    "president": {
+        "president": "String"
+    },
+    "training": {
+        "training": "String",
+        "alma_mater": "String",
+        "education": "String",
+        "học vấn": "String",
+        "coach": "String"
+    }
+}

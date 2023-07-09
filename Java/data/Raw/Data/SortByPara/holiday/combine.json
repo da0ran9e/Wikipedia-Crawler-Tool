@@ -1,0 +1,33 @@
+{
+    "date": {
+        "date": "20 tháng 10 hàng năm"
+    },
+    "name": {
+        "official_name": "''Ngày Phụ nữ Việt Nam''",
+        "nickname": "",
+        "holiday_name": "Ngày phụ nữ Việt Nam",
+        "longtype": ""
+    },
+    "frequency": {
+        "frequency": "Thường niên(hằng năm)"
+    },
+    "relatedto": {
+        "relatedto": "Hội Phụ nữ phản đế Việt Nam (nay đổi tên là [[Hội Liên hiệp Phụ nữ Việt Nam]]) }}"
+    },
+    "begins": {
+        "begins": "{{Ngày bắt đầu và tuổi|1930|10|20|df=yes}}"
+    },
+    "duration": {
+        "duration": "1 ngày"
+    },
+    "significance": {
+        "significance": ""
+    },
+    "observances": {
+        "observances": "Tôn vinh phụ nữ hay nói cách khác là phái nữ [[Việt Nam]]"
+    },
+    "celebrations": {
+        "observedby": "{{VNM}}",
+        "celebrations": "{{VNM}}"
+    }
+}
