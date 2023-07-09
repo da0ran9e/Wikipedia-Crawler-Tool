@@ -1,7 +1,3 @@
-package HForm;
-
-import org.asynchttpclient.uri.Uri;
-import org.json.JSONException;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -106,7 +102,7 @@ public class ImgDownloader {
         }
     }
 
-    public static void main(String[] args) throws JSONException, IOException, ParseException {
+    public static void main(String[] args) throws IOException, ParseException {
         ImgDownloader();
     }
 }
